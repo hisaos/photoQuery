@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block head %}
+    <title>検索結果</title>
+    {{ header|safe }}
+{% endblock %}
+{% block body %}
+    <h1>風景</h1> 
+    <img src="data:image/jpeg;base64,{{ imgData }}" alt="風景" width=400 />
+    <h1>ハザードマップ</h1>
+        {{ body_html|safe }}
+    
+    <script>
+        {{ script|safe }}
+    </script>
+    
+    <h1>土地建物の価格</h1>
+    <table>
+        <tr>
+            <th>地域名</th>
+            <th>タイプ</th>
+            <th>間取り</th>
+            <th>価格</th>
+        </tr>
+        {% for entry in realEstatePriceData %}
+            <tr>
+                <td>{{ entry["Prefecture"] }}{{ entry["Municipality"] }}{{ entry["DistrictName"] }}</td>
+                <td>{{ entry["Type"] }}</td>
+                <td>{{ entry["FloorPlan"] }}</td>
+                <td>{{ entry["TradePrice"] }} 円</td>
+            </tr>
+    {% endfor %}
+    </table>
+    <button type="button" onclick="history.back()">戻る</button>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block head %}
+    {{ header|safe }}
+{% endblock %}
+{% block body %}
+    <h1>エラー</h1>
+    画像のExifに必要なデータがないようです。戻るボタンを押して別の画像をお試しください。 
+    <button type="button" onclick="history.back()">戻る</button>
+{% endblock %}

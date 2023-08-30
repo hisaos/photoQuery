@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block head %}
+<title>Photoquery 写真アップロード</title>
+{% endblock %}
+{% block body %}
+<form action="{{ cgi }}" method="post" enctype="multipart/form-data">
+  <p>Exif付きのJPG画像をアップロードしてください</p>
+  <input type="file" name="photo" accept="image/jpeg" required>
+  <input type="submit" value="アップロード">
+</form>
+{% endblock %}
